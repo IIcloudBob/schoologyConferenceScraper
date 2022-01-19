@@ -50,7 +50,6 @@ def getCourseInfo():
     #  uncomment the two above if you want the chrome browser to not be visible when scraping
 
     def DoWork(course, courseName, messages, options):
-        global isCourseRunning
         path = 'chromedriver.exe'
         driver = webdriver.Chrome(executable_path=path, options=options)
         for c in loginInfo:
@@ -74,7 +73,6 @@ def getCourseInfo():
             messages.append(
                 f'No conferences found for _{courseName}_')
         elif '''"status_display":"In progress"''' in info and '''"status":"2"''' in info:
-            isCourseRunning = True
             # \033[93mgoto
             messages.insert(1,
                 f'\n**NUCLEAR WARHEAD** DETONATING IN T-20 SECONDS. ALL PERSONNEL, HEAD TO THE [BLAST SHELTER](https://{schoolPrefix}.schoology.com/apps/191034318/run/course/{course}) **IMMEDIATELY**\n')
@@ -92,14 +90,8 @@ def getCourseInfo():
     for i in threads:
         i.join()
 
-    if isCourseRunning:
-        printVal = '\n'.join(messages)
-        print(printVal)
-    else:
         printVal = '\n'.join(messages)
         print(printVal)
 
-
-isCourseRunning = False         # dont change this variable.
 getCourseInfo()
 
