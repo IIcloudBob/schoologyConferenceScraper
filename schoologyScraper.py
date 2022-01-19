@@ -8,7 +8,7 @@ from json import loads
 
 
 schoolPrefix = ""     # get from the login page. All you need is whats before .schoology.com
-schoolId = ""          # this value is a number. get from schoology login page
+schoolId = ""          # this value is a number. get from schoology login page link (&school=...)
 
 username = ""
 password = ""          # once filled in don't share this code with anyone or they can steal this info. We need this information to actually login to the schoology page and start extracting the course information
